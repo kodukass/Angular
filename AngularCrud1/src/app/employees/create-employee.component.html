@@ -76,12 +76,16 @@ novalidate
                 <label for="department">
                     Department
                 </label>
-                <select name="department" id="department" type="" 
-                [(ngModel)]="employee.department" class="form-control">
+                <select name="department" appSelectValidator="select" id="department" type="" [(ngModel)]="employee.department" 
+                    class="form-control" required #department="ngModel">
+                <option value="select">Select Department</option>
                 <option *ngFor="let dept of departments" [value]="dept.id">
                     {{dept.name}}
                 </option>
             </select>
+            <span class="help-block" *ngIf="department.touched && department.errors?.defaultSelected">
+                Department is required
+            </span>
             </div>
 
             <div class="form-group">
@@ -96,6 +100,8 @@ novalidate
                 name="photoPath" [(ngModel)]="employee.photoPath">
             </div>
 
+
+
             <div class="form-group">
                 <button (click)="togglePhotoPreview()" class="btn btn-primary">
                      {{previewPhoto? "Hide ": "Show "}} Preview
@@ -106,7 +112,15 @@ novalidate
                 <img [src]="employee.photoPath" height="200" width="200" *ngIf="previewPhoto"/>
             </div>
 
+        </div class="form-group" [class.has-error]="password.touched && password.invalid">
+            <label for="password" class="control-label">Password</label>
+            <input name="password" required type="text" class="form-control"
+                [(ngModel)]="employee.password" #password="ngModel">
+            <span class="help-block" *ngIf="password.touched && password.errors?.required">
+                Password is required
+            </span>
         </div>
+
         <div class="panel-footer">
             <button class="btn btn-primary" type="submit" 
             [disabled]="employeeForm.invalid">Save</button>

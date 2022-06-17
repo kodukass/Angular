@@ -20,7 +20,7 @@ export class CreateEmployeeComponent implements OnInit {
     phoneNumber: 0,
     contactPreference: '',
     dateOfBirth: new Date(),
-    department: '',
+    department: 'null',
     isActive: false,
     photoPath: '',
   };
