@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ListEmployeesComponent } from './employees/list-employees.component';
 import { CreateEmployeeComponent } from './employees/create-employee.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 //import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     AppComponent,
     ListEmployeesComponent,
     CreateEmployeeComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
